@@ -4,7 +4,7 @@ author: kyle godwin
 last date modified: 05 april 2023
 """
 import csv
-from census_data_class import CensusData as CD
+from topic_1.census_data_class import CensusData as CD
 
 with open('Iowa 2010 Census Data Population Income.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -23,15 +23,14 @@ with open('Iowa 2010 Census Data Population Income.csv') as csv_file:
 
 
 def pop_per_house(c):
-    return int(county[c].population.replace(",", "")) / int(county[c].households.replace(",", ""))
+    pop_per_household = int(county[c].population.replace(",", "")) / int(county[c].households.replace(",", ""))
+    return f"{pop_per_household:.2f}"
 
 
 def total_pop(county_lib):
     iowa_pop = 0
     for key in county_lib:
-        #if not key == "United States" and key == "Iowa State":
-            #iowa_pop = iowa_pop + int(county[key].population.replace(",", ""))
-        iowa_pop = iowa_pop + int(county[key].population.replace(",", ""))
+        iowa_pop = iowa_pop + int(county_lib[key].population.replace(",", ""))
     return iowa_pop
 
 

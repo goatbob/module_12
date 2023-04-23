@@ -1,3 +1,10 @@
+"""
+program: test_custom_exceptions.py
+author: kyle godwin
+last date modified: 11 april 2023
+
+unittest for customer_exceptions.py
+"""
 import unittest
 from custom_exceptions import *
 from custom_exceptions import Customer as Cust
@@ -27,7 +34,7 @@ class CustomerTest(unittest.TestCase):
     def test_student_str(self):  # test string output of class
         self.assertEqual(str(self.customer), "795 Bobber Bob 123-456-7890")
 
-    def test_student_repr(self):  # test string output of class
+    def test_student_repr(self):  # test representation output of class
         self.assertEqual(repr(self.customer), "795 Bobber Bob 123-456-7890")
 
     def test_display(self):  # test display function
